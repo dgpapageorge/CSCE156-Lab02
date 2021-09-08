@@ -3,7 +3,7 @@ package unl.cse;
 /**
  * A basic data class that models a child.
  * 
- * @author cbourke
+ * @author dpapageorge
  *
  */
 public class Child {

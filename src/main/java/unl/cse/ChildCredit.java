@@ -7,24 +7,46 @@ import java.util.List;
  * This program produces a report on how much a a tax payer can expect for their
  * child tax credits.
  * 
- * @author cbourke
+ * @author dpapageorge
  *
  */
 public class ChildCredit {
 
 	/**
-	 * Produces a report (printed to the standard output) of how much
+	 * Produces a string report of how much
 	 * of a credit each child receives as well as a grand total.
 	 * 
-	 * Returns the total child tax credit.
+	 * Returns the total of credit.
 	 * 
 	 * @param kids
-	 * @return
+	 * @return report
 	 */
 	public static int produceReport(List<Child> kids) {
-		// TODO: write a loop to iterate over the elements in the child array
-		// and output a table as specified
-		return 0;
+		System.out.printf("%-19s %-5s","Child","Amount\n");
+		int amount = 0;
+		int first = 0;
+		int total = 0;
+		for (int i = 0;i<kids.size();i++)
+		{
+			if (kids.get(i).getAge() >= 18)
+			{
+				amount = 0;
+			}
+			else if (first == 0)
+			{
+				amount = 1000;
+				first = 1;
+			}
+			else
+			{
+				amount = 500;
+			}
+			total += amount;
+			
+			System.out.printf("%-20s %-5s","\n"+kids.get(i).getName()+" ("+kids.get(i).getAge()+")","$"+amount);
+		}
+		System.out.printf("%-20s %-5s","\nTotal Credit: ","$"+total);
+		return total;
 
 	}
 

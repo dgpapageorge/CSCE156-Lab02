@@ -4,7 +4,7 @@ package unl.cse;
  * This program demonstrates the use of various loop control structures to
  * compute the sum of natural numbers.
  * 
- * @author cbourke
+ * @author dpapageorge
  *
  */
 public class Natural {
@@ -15,8 +15,14 @@ public class Natural {
 	 * @return
 	 */
 	public static int sumWithWhile(int n) {
-		// TODO: write a while-loop to compute the sum of 1..n
-		return 0;
+		int flag = 0;
+		int sum = 0;
+		while (flag <= n)
+		{
+			sum+=flag;
+			flag++;
+		}
+		return sum;
 	}
 
 	/**
@@ -25,8 +31,12 @@ public class Natural {
 	 * @return
 	 */
 	public static int sumWithFor(int n) {
-		// TODO: write a for-loop to compute the sum of 1..n
-		return 0;
+		int sum = 0;
+		for (int i = 0; i<=n;i++)
+		{
+			sum += i;
+		}
+		return sum;
 	}
 
 	public static void main(String args[]) {
@@ -42,7 +52,7 @@ public class Natural {
 			System.err.println("ERROR: expecting a single integer argument");
 			System.exit(1);
 		}
-
+		
 		String zeroToTen[] = new String[11];
 		zeroToTen[0] = "zero";
 		zeroToTen[1] = "one";
@@ -56,9 +66,16 @@ public class Natural {
 		zeroToTen[9] = "nine";
 		zeroToTen[10] = "ten";
 
-		// TODO: call your methods here and print the result
-
-		// TODO: write an enhanced for-loop to iterate over the zeroToTen array
-
+		String line = "";
+		for (String s: zeroToTen)
+		{
+			line += s;
+			if (s != "ten")
+			{
+				line+=" + ";
+			}
+		}
+		line += " = "+sumWithFor(10);
+		System.out.println(line);
 	}
 }
